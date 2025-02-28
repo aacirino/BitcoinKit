@@ -345,3 +345,20 @@ public extension BitArray {
         return Data(self.asBytesArray())
     }
 }
+
+extension BitArray {
+    public mutating func replaceSubrange<C>(_ subrange: Range<Int>, with newElements: C)
+    where C: Collection, C.Element == Bool {
+        precondition(subrange.lowerBound >= 0 && subrange.upperBound <= count, "Subrange fora dos limites")
+        
+        let newBits = Array(newElements)
+        
+        for i in subrange.reversed() {
+            remove(at: i)
+        }
+        
+        for (index, bit) in newBits.enumerated() {
+            insert(bit, at: subrange.lowerBound + index)
+        }
+    }
+}

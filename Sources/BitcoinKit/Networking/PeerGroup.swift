@@ -130,7 +130,7 @@ public class PeerGroup: PeerDelegate {
     }
 }
 
-public protocol PeerGroupDelegate: class {
+public protocol PeerGroupDelegate: AnyObject {
     func peerGroupDidStart(_ peerGroup: PeerGroup)
     func peerGroupDidStop(_ peerGroup: PeerGroup)
     func peerGroupDidReceiveTransaction(_ peerGroup: PeerGroup)

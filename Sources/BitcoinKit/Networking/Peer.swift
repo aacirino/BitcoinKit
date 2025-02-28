@@ -469,7 +469,7 @@ public class Peer: NSObject, StreamDelegate {
     }
 }
 
-public protocol PeerDelegate: class {
+public protocol PeerDelegate: AnyObject {
     func peerDidConnect(_ peer: Peer)
     func peerDidDisconnect(_ peer: Peer)
     func peer(_ peer: Peer, didReceiveVersionMessage message: VersionMessage)
